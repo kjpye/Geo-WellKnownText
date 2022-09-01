@@ -1,6 +1,32 @@
 use Test;
+use lib 'lib';
+
+use Geo::Geometry;
 use Geo::WellKnownText;
 
-pass "replace me";
+plan 11;
 
-done-testing;
+my $p  = Point.new(10, 20);
+my $z  = PointZ.new(10, 20, 30);
+my $m  = PointM.new(10, 20, 30);
+my $zm = PointZM.new(10, 20, 30, 40);
+
+my @examples = (
+    'Point(10 10)',
+    'LineString(10.01 10.3,20 20,30 50)',
+    'Polygon((10 10.1,10 20.2,20 20.3,20 15.4,19 19))',
+    'MultiPoint((10.01 10.3),(20 20),(30 50))',
+    'MultiPoint((10 10),(20 20))',
+    'MultiPolygon(((10 10,10 20,20 20,20 15,10 10)),((60 60,70 70,80 60,60 60)))',
+    'MultiLineString((10 10,20 20),(15 15,30 15))',
+    'GeometryCollection(Point(10 10),Point(30 30),LineString(15 15,20 20))',
+    'LineStringm(4 1 0,4 1 0)',
+    'LineStringZM(4 1 0 1,4 1 3 4)',
+# FROM UK OS:
+    'MULTILINESTRINGZM((464759.47000000003 1212349.74 0 -1.7976931348623157e+308,464816.08 1212360.29 0 -1.7976931348623157e+308))',
+);
+
+for @examples -> $ex {
+    my $wkt = from-wkt($ex);
+    is $ex.lc, $wkt.wkt.lc, 'roundtrip';
+}

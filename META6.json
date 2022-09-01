@@ -12,14 +12,15 @@
   "name": "Geo::WellKnownText",
   "perl": "6.d",
   "provides": {
-    "Geo::WellKnownText": "lib/Geo/WellKnownText.rakumod"
+    "Geo::WellKnownText": "lib/Geo/WellKnownText.rakumod",
+    "Geo::WellKnownText::Grammar": "lib/Geo/WellKnownText/Grammar.rakumod"
   },
   "resources": [
   ],
-  "source-url": "",
+  "source-url": "https://github.com/kjpye/Geo-WellKnownText.git",
   "tags": [
   ],
   "test-depends": [
   ],
-  "version": "0.0.1"
+  "version": "0.1.0"
 }
