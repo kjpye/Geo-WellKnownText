@@ -8,7 +8,7 @@
   "depends": [
     "Geo::Geometry"
   ],
-  "description": "blah blah blah",
+  "description": "Convert Well Known Text to Geo::Geometry objects",
   "license": "Artistic-2.0",
   "name": "Geo::WellKnownText",
   "perl": "6.d",
@@ -23,5 +23,5 @@
   ],
   "test-depends": [
   ],
-  "version": "0.1.1"
+  "version": "0.1.2"
 }
