@@ -1,6 +1,8 @@
 Revision history for Geo-WellKnownText
 
 {{$NEXT}}
+
+0.1.4  2022-09-22T11:03:17+10:00
     - Fix grammar to handle some cases previously broken like MultiPolygonZM
     - Add at least one test case for each possibility
 
