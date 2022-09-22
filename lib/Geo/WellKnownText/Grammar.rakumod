@@ -1,3 +1,5 @@
+use Grammar::Tracer;
+
 grammar WKT {
     regex TOP {
         | <geometry-tagged-text>   { make $<geometry-tagged-text>.made;   }
@@ -143,7 +145,7 @@ grammar WKT {
                              | '(' <pointz>+ % ',' ')' # external action required
                              | '[' <pointz>+ % ',' ']' # external action required
                            }
-    rule polygon-textz { | <empty-set>
+    rule polygonz-text { | <empty-set>
                           | '(' <linearringz-text>+ % ',' ')' # external action required
                           | '[' <linearringz-text>+ % ',' ']' # external action required
                         }
@@ -161,8 +163,8 @@ grammar WKT {
                                   | '[' <linestringz-text>+ % ',' ']' # external action required
                                 }
     rule multipolygonz-text { | <empty-set>
-                               | '(' <multipolygonz-text>+ % ',' ')' # external action required
-                               | '[' <multipolygonz-text>+ % ',' ']' # external action required
+                               | '(' <polygonz-text>+ % ',' ')' # external action required
+                               | '[' <polygonz-text>+ % ',' ']' # external action required
                              }
     rule geometrycollectionz-text { | <empty-set>
                                      | '(' <geometryz-tagged-text>+ % ',' ')' # external action required
@@ -207,7 +209,7 @@ grammar WKT {
                              | '(' <pointm>+ % ',' ')' # external action required
                              | '[' <pointm>+ % ',' ']' # external action required
                            }
-    rule polygon-textm { | <empty-set>
+    rule polygonm-text { | <empty-set>
                           | '(' <linearringm-text>+ % ',' ')' # external action required
                           | '[' <linearringm-text>+ % ',' ']' # external action required
                         }
@@ -225,8 +227,8 @@ grammar WKT {
                                   | '[' <linestringm-text>+ % ',' ']' # external action required
                                 }
     rule multipolygonm-text { | <empty-set>
-                               | '(' <multipolygonm-text>+ % ',' ')' # external action required
-                               | '[' <multipolygonm-text>+ % ',' ']' # external action required
+                               | '(' <polygonm-text>+ % ',' ')' # external action required
+                               | '[' <polygonm-text>+ % ',' ']' # external action required
                              }
     rule geometrycollectionm-text { | <empty-set>
                                      | '(' <geometrym-tagged-text>+ % ',' ')' # external action required
@@ -272,7 +274,7 @@ grammar WKT {
                              | '(' <pointzm>+ % ',' ')' # external action required
                              | '[' <pointzm>+ % ',' ']' # external action required
                            }
-    rule polygon-textzm { | <empty-set>
+    rule polygonzm-text { | <empty-set>
                           | '(' <linearringzm-text>+ % ',' ')' # external action required
                           | '[' <linearringzm-text>+ % ',' ']' # external action required
                         }
@@ -290,8 +292,8 @@ grammar WKT {
                                   | '[' <linestringzm-text>+ % ',' ']' # external action required
                                 }
     rule multipolygonzm-text { | <empty-set>
-                               | '(' <multipolygonzm-text>+ % ',' ')' # external action required
-                               | '[' <multipolygonzm-text>+ % ',' ']' # external action required
+                               | '(' <polygonzm-text>+ % ',' ')' # external action required
+                               | '[' <polygonzm-text>+ % ',' ']' # external action required
                              }
     rule geometrycollectionzm-text { | <empty-set>
                                      | '(' <geometryzm-tagged-text>+ % ',' ')' # external action required
